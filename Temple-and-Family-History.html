@@ -1,0 +1,329 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Temple &amp; Family History</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&family=Source+Sans+3:wght@400;600&display=swap">
+<style>
+/* Layout: plain single reading column; ward-plan section splits into two flat columns that stack on phones */
+:root {
+  --bg: #f7f8fa;
+  --fg: #1d2433;
+  --muted: #5b6475;
+  --line: #d9dee6;
+  --accent: #2f4a7a;
+  --gold: #a7802f;
+  --surface: #ffffff;
+  --yes: #2e6b4f; --yes-soft: #e8f2ec; --no: #9b3b32; --no-soft: #f8eae8;
+  --display: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  --body: "Source Sans 3", -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #12161f; --fg: #e6e9ef; --muted: #a2aabb; --line: #2c3446; --accent: #9db4e0; --gold: #d4b26a;
+    --surface: #1a202c; --yes: #7cc4a0; --yes-soft: #19302a; --no: #e59a90; --no-soft: #3a1f1d;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #12161f; --fg: #e6e9ef; --muted: #a2aabb; --line: #2c3446; --accent: #9db4e0; --gold: #d4b26a;
+  --surface: #1a202c; --yes: #7cc4a0; --yes-soft: #19302a; --no: #e59a90; --no-soft: #3a1f1d;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--fg); font-family: var(--body); font-size: 17px; line-height: 1.6; padding: 0 20px; }
+.wrap { max-width: 860px; margin: 0 auto; padding-block: 44px 60px; display: grid; gap: 44px; }
+header { display: grid; gap: 8px; border-bottom: 1px solid var(--line); padding-bottom: 24px; }
+.eyebrow { font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+h1 { font-family: var(--display); font-weight: 600; font-size: clamp(2.2rem, 6vw, 3.1rem); line-height: 1.05; margin: 0; color: var(--accent); text-wrap: balance; }
+.sub { color: var(--muted); margin: 0; max-width: 62ch; }
+h2 { font-family: var(--display); font-weight: 600; font-size: 1.8rem; margin: 0; line-height: 1.15; text-wrap: balance; }
+section { display: grid; gap: 20px; }
+.sec-head { display: grid; gap: 4px; }
+.ref { font-size: 0.88rem; color: var(--muted); }
+.lede { margin: 0; color: var(--muted); max-width: 65ch; }
+.group { display: grid; gap: 6px; }
+h3 { font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin: 0; font-weight: 600; }
+ul { margin: 0; padding-left: 1.2em; display: grid; gap: 6px; max-width: 70ch; }
+li::marker { color: var(--gold); }
+blockquote { margin: 0; padding: 2px 0 2px 14px; border-left: 2px solid var(--gold); color: var(--muted); font-style: italic; max-width: 70ch; }
+blockquote cite { display: block; font-style: normal; font-size: 0.85rem; margin-top: 4px; }
+.cols { display: grid; grid-template-columns: 1.6fr 1fr; gap: 20px; align-items: start; }
+.col { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 22px; display: grid; gap: 14px; min-width: 0; }
+.col-head { display: flex; align-items: center; gap: 10px; font-weight: 600; font-size: 1.05rem; }
+.badge { width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center; font-size: 0.95rem; font-weight: 700; flex: none; }
+.yes .badge { background: var(--yes-soft); color: var(--yes); }
+.yes .col-head { color: var(--yes); }
+.no .badge { background: var(--no-soft); color: var(--no); }
+.no .col-head { color: var(--no); }
+.col ul { list-style: none; padding: 0; gap: 12px; }
+.col li { padding-left: 20px; position: relative; }
+.yes li::before { content: "✓"; position: absolute; left: 0; color: var(--yes); font-weight: 700; }
+.no li::before { content: "✕"; position: absolute; left: 0; color: var(--no); font-weight: 700; }
+.col .tag { display: block; font-size: 0.9rem; color: var(--muted); margin-top: 2px; }
+.filter { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+.fcol { background: var(--surface); border: 1px solid var(--line); border-top: 4px solid var(--c); border-radius: 10px; padding: 18px; display: grid; gap: 12px; align-content: start; min-width: 0; }
+.fhead { display: flex; align-items: center; gap: 10px; font-weight: 600; font-size: 1.1rem; color: var(--c); }
+.fico { width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; font-weight: 700; background: color-mix(in srgb, var(--c) 14%, transparent); color: var(--c); flex: none; }
+.cycle { list-style: none; margin: 6px 0 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; max-width: none; counter-reset: none; }
+.cycle li { position: relative; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 16px; display: grid; gap: 4px; align-content: start; min-width: 0; }
+.cycle li::marker { content: ""; }
+.cycle li:not(:last-child)::after { content: "→"; position: absolute; right: -11px; top: 50%; transform: translateY(-50%); color: var(--gold); font-weight: 700; background: var(--bg); line-height: 1; padding: 2px 0; }
+.cycle li:last-child::after { content: "↺ repeat"; position: absolute; right: 12px; top: 14px; font-size: 0.75rem; color: var(--gold); font-weight: 600; }
+.step { width: 28px; height: 28px; border-radius: 50%; background: var(--gold); color: var(--bg); display: grid; place-items: center; font-weight: 700; font-size: 0.9rem; margin-bottom: 4px; }
+.cycle strong { font-size: 1rem; }
+.cycle li > span:last-child { color: var(--muted); font-size: 0.92rem; }
+@media (max-width: 760px) { .cycle { grid-template-columns: 1fr; } .cycle li:not(:last-child)::after { content: "↓"; right: auto; left: 50%; top: auto; bottom: -15px; transform: translateX(-50%); padding: 0 4px; } }
+.fcol ul { list-style: none; padding: 0; gap: 10px; font-size: 0.95rem; }
+.fcol li { padding-left: 14px; position: relative; }
+.fcol li::before { content: ""; position: absolute; left: 0; top: 0.65em; width: 6px; height: 1.5px; background: var(--c); }
+.f-continue { --c: var(--yes); }
+.f-simplify { --c: var(--accent); }
+.f-stop { --c: var(--no); }
+.f-start { --c: var(--gold); }
+@media (max-width: 860px) { .filter { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 520px) { .filter { grid-template-columns: 1fr; } }
+sup { font-size: 0.7em; margin-left: 2px; }
+sup a { text-decoration: none; }
+.motto { background: var(--accent); color: var(--bg); border-radius: 10px; padding: 22px 24px; display: grid; gap: 4px; }
+.motto-label { font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; opacity: 0.8; font-weight: 600; }
+.motto p { margin: 0; font-family: var(--display); font-size: clamp(1.4rem, 3.5vw, 1.8rem); line-height: 1.2; font-style: italic; text-wrap: balance; }
+.outcomes { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin-top: 6px; }
+.outcome { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 18px; display: grid; gap: 4px; align-content: start; min-width: 0; }
+.outcome strong { font-size: 1.05rem; }
+.outcome > span:last-child { color: var(--muted); font-size: 0.95rem; }
+.ico { width: 40px; height: 40px; border-radius: 50%; background: color-mix(in srgb, var(--gold) 16%, transparent); display: grid; place-items: center; margin-bottom: 6px; }
+.ico svg { width: 22px; height: 22px; fill: none; stroke: var(--gold); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.tiles { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-top: 6px; }
+.tile { border-left: 3px solid var(--accent); background: var(--surface); border-radius: 0 8px 8px 0; padding: 12px 14px; font-size: 0.94rem; color: var(--muted); display: grid; gap: 2px; min-width: 0; }
+.tile-k { color: var(--fg); font-weight: 600; font-size: 0.98rem; }
+.indicators { display: grid; gap: 10px; background: var(--surface); border: 1px dashed var(--line); border-radius: 10px; padding: 18px; }
+.ind-row { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+.ind { display: grid; gap: 2px; min-width: 0; }
+.ind b { font-family: var(--display); font-size: 1.7rem; line-height: 1; color: var(--muted); font-variant-numeric: tabular-nums; }
+.ind span { font-size: 0.88rem; color: var(--muted); }
+@media (max-width: 760px) { .outcomes, .tiles { grid-template-columns: 1fr; } .ind-row { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 761px) and (max-width: 900px) { .tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+/* Existing plan: toned down, reads as background */
+.quiet { gap: 16px; }
+.quiet h2 { font-size: 1.5rem; color: var(--muted); }
+.quiet .motto { background: transparent; color: var(--muted); border-left: 2px solid var(--line); border-radius: 0; padding: 2px 0 2px 14px; }
+.quiet .motto p { font-size: 1.15rem; }
+.quiet .outcomes, .quiet .tiles { gap: 8px; }
+.quiet .outcome { background: transparent; border: 0; padding: 0; font-size: 0.92rem; }
+.quiet .outcome strong { font-size: 0.95rem; }
+.quiet .ico { display: none; }
+.quiet .tile { background: transparent; border-left: 2px solid var(--line); padding: 4px 0 4px 10px; font-size: 0.9rem; }
+.quiet .tile-k { font-size: 0.92rem; }
+.quiet .indicators { background: transparent; padding: 12px 14px; }
+.quiet .ind b { font-size: 1.25rem; }
+/* Updated plan ideas: the featured section */
+.feature { background: color-mix(in srgb, var(--accent) 7%, var(--bg)); border: 1px solid color-mix(in srgb, var(--accent) 22%, var(--line)); border-radius: 16px; padding: 28px; gap: 24px; }
+.feature h2 { font-size: 2.2rem; color: var(--accent); }
+.feature .motto { background: var(--accent); padding: 28px; border-radius: 12px; box-shadow: 0 10px 30px -18px color-mix(in srgb, var(--accent) 80%, transparent); }
+.feature .motto p { font-size: clamp(1.6rem, 4vw, 2.2rem); }
+.feature .motto-label { color: var(--gold); opacity: 1; }
+.feature .cycle li { box-shadow: 0 6px 18px -14px color-mix(in srgb, var(--fg) 60%, transparent); }
+.feature .cycle li:not(:last-child)::after { background: color-mix(in srgb, var(--accent) 7%, var(--bg)); }
+.feature .fcol { background: color-mix(in srgb, var(--c) 6%, var(--surface)); box-shadow: 0 6px 18px -14px color-mix(in srgb, var(--fg) 60%, transparent); }
+.feature .fcol ul { font-size: 0.98rem; }
+@media (max-width: 600px) { .feature { padding: 18px; border-radius: 12px; } .feature h2 { font-size: 1.8rem; } }
+.note { font-size: 0.92rem; color: var(--muted); border-left: 2px solid var(--no); padding: 2px 0 2px 12px; margin: 6px 0 0; max-width: 70ch; }
+.small { font-size: 0.85rem; color: var(--muted); }
+footer { font-size: 0.88rem; color: var(--muted); border-top: 1px solid var(--line); padding-top: 18px; display: grid; gap: 6px; }
+footer ul { padding-left: 1.1em; gap: 4px; }
+a { color: var(--accent); text-underline-offset: 3px; }
+a:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; border-radius: 2px; }
+@media (max-width: 720px) {
+  .cols { grid-template-columns: 1fr; gap: 28px; }
+  .wrap { padding-block: 32px 48px; gap: 36px; }
+}
+</style>
+
+<div class="wrap">
+  <header>
+    <span class="eyebrow">General Handbook · Chapter 25: Temple and Family History Work</span>
+    <h1>Temple &amp; Family History</h1>
+    <p class="sub">Ward temple and family history coordination meeting: who attends, what it focuses on, and how the ward plan is built, as outlined in the General Handbook.</p>
+  </header>
+
+  <section aria-labelledby="purpose">
+    <div class="sec-head">
+      <h2 id="purpose">Purpose of the Meeting</h2>
+      <span class="ref">General Handbook <a href="https://www.churchofjesuschrist.org/study/manual/general-handbook/25-temple-and-family-history-work?lang=eng#title_number13" target="_blank" rel="noopener">25.2.7, Ward Temple and Family History Coordination Meetings</a></span>
+    </div>
+    <div class="group">
+      <h3>Topics the meeting usually covers</h3>
+      <ul>
+        <li>How to implement the ward temple and family history plan<sup><a href="#ref-1">1</a></sup></li>
+        <li>How to help specific ward members prepare to receive their temple ordinances<sup><a href="#ref-1">1</a></sup></li>
+        <li>How to help specific ward members with their temple and family history efforts<sup><a href="#ref-1">1</a></sup></li>
+      </ul>
+    </div>
+
+    <div class="group">
+      <h3>Focus of the meeting</h3>
+      <ul>
+        <li>The needs of individuals, especially youth, new and returning members, and those who have not been endowed<sup><a href="#ref-1">1</a></sup></li>
+      </ul>
+    </div>
+
+    <div class="group">
+      <h3>Who attends</h3>
+      <ul>
+        <li>Ward temple and family history leader (conducts)</li>
+        <li>Assigned members of the Relief Society, elders quorum, and Primary presidencies</li>
+        <li>An assistant in the priests quorum (or the teachers or deacons quorum president if no priests)</li>
+        <li>A presidency member of the oldest Young Women class</li>
+        <li>Temple and family history consultants</li>
+      </ul>
+      <p class="lede">All who attend counsel together as equal participants.<sup><a href="#ref-1">1</a></sup></p>
+    </div>
+  </section>
+
+  <section aria-labelledby="plan">
+    <div class="sec-head">
+      <h2 id="plan">Creating the Ward Temple &amp; Family History Plan</h2>
+      <span class="ref">General Handbook <a href="https://www.churchofjesuschrist.org/study/manual/general-handbook/25-temple-and-family-history-work?lang=eng#title_number12" target="_blank" rel="noopener">25.2.6, Ward Temple and Family History Plan</a> · see also 25.2.5, Ward Council</span>
+    </div>
+
+    <blockquote>"Each ward should have a simple temple and family history plan."
+      <cite>General Handbook 25.2.6</cite></blockquote>
+
+    <div class="cols">
+      <div class="col yes">
+        <div class="col-head"><span class="badge" aria-hidden="true">✓</span>The plan could include</div>
+        <ul>
+          <li>Helping specific members understand the blessings of worshipping in the house of the Lord.</li>
+          <li>Helping members prepare to receive temple ordinances.</li>
+          <li>Helping members use Ordinances Ready to take an ancestor's name to the temple, and use FamilySearch to add what they know about deceased relatives who need ordinances.
+            <span class="tag">Ordinances Ready: see 25.4.1, Online Resources.</span></li>
+          <li>Involving new and returning members, youth, and children in temple and family history work.
+            <span class="tag">Family Name Assist is a simple way to help these members prepare family names (25.4.1).</span></li>
+          <li>Helping Primary children prepare to receive a temple recommend and to worship in the house of the Lord regularly where possible.
+            <span class="tag">The Primary presidency should hold a Temple and Priesthood Preparation Meeting each year (see 12.1.7 and 12.2.4).</span></li>
+        </ul>
+      </div>
+
+      <div class="col no">
+        <div class="col-head"><span class="badge" aria-hidden="true">✕</span>The plan should not</div>
+        <ul>
+          <li>Establish quotas for temple worship.</li>
+          <li>Establish reporting systems for temple worship.</li>
+        </ul>
+        <p class="small">"The ward temple and family history plan should not establish quotas or reporting systems for temple worship." (25.2.6)</p>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="existing" class="quiet">
+    <div class="sec-head">
+      <h2 id="existing">Existing Ward Plan (2024)</h2>
+      <span class="ref">Main points from the Greenwich Ward Temple and Family History Plan 2024</span>
+    </div>
+    <div class="motto">
+      <span class="motto-label">2024 theme</span>
+      <p>"Gathering individuals and families to the ordinances of the temple"</p>
+    </div>
+
+    <div class="group">
+      <h3>Three outcomes</h3>
+      <div class="outcomes">
+        <div class="outcome"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2v3M9 5h6M5 21V11l7-5 7 5v10M9 21v-5h6v5M3 21h18"/></svg></span><strong>Temple attendance</strong><span>Encourage members to worship in the temple</span></div>
+        <div class="outcome"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 20c2-6 6-10 16-14M14 6h6v6"/></svg></span><strong>Covenant path</strong><span>Help new and returning members progress</span></div>
+        <div class="outcome"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="5" r="2.5"/><circle cx="5" cy="18" r="2.5"/><circle cx="19" cy="18" r="2.5"/><path d="M12 7.5v4M12 11.5l-6 4.5M12 11.5l6 4.5"/></svg></span><strong>Family names</strong><span>Help members take ancestors' names to the temple</span></div>
+      </div>
+    </div>
+
+    <div class="group">
+      <h3>How it was carried out</h3>
+      <div class="tiles">
+        <div class="tile"><span class="tile-k">Temple visits</span>Monthly ward visits, announced each Sunday</div>
+        <div class="tile"><span class="tile-k">Newsletter</span>Monthly update with temple dates, quotes and experiences</div>
+        <div class="tile"><span class="tile-k">Focus month</span>Talks, lessons, family history challenge, ward fast, family stories day, temple picnic</div>
+        <div class="tile"><span class="tile-k">New &amp; returning members</span>Temple recommends, temple preparation classes, invitations from the bishop</div>
+        <div class="tile"><span class="tile-k">FamilySearch</span>Lessons on four generations, Ordinances Ready and Family Name Assist</div>
+        <div class="tile"><span class="tile-k">Primary &amp; youth</span>Temple songs and lessons; youth temple visits and a family names night</div>
+      </div>
+    </div>
+
+    <div class="indicators">
+      <h3>Key indicators used in 2024</h3>
+      <div class="ind-row">
+        <div class="ind"><b>60</b><span>members submitting names</span></div>
+        <div class="ind"><b>Monthly</b><span>ward temple trip</span></div>
+        <div class="ind"><b>&gt;50%</b><span>of members with four generations</span></div>
+        <div class="ind"><b>All</b><span>new and returning members at temple baptisms</span></div>
+      </div>
+      <p class="note">The handbook asks that the plan not set quotas or reporting systems for temple worship (25.2.6), so the updated plan below moves away from these targets.</p>
+    </div>
+  </section>
+
+  <section aria-labelledby="ideas" class="feature">
+    <div class="sec-head">
+      <h2 id="ideas">Ideas for the Updated Ward Plan</h2>
+      <span class="ref">Summary of the Temple &amp; Family History Leader's draft proposal (Aug 2026)</span>
+    </div>
+    <div class="motto">
+      <span class="motto-label">The shift</span>
+      <p>From running a programme to helping a few people at a time</p>
+    </div>
+
+    <div class="group">
+      <h3>A simple, repeating cycle</h3>
+      <ol class="cycle">
+        <li><span class="step">1</span><strong>Identify</strong><span>Prayerfully find a few people who could be blessed now</span></li>
+        <li><span class="step">2</span><strong>Help</strong><span>One-to-one help with one achievable next step</span></li>
+        <li><span class="step">3</span><strong>Connect to the temple</strong><span>Go with them or prepare a family name together</span></li>
+        <li><span class="step">4</span><strong>Follow up</strong><span>Ask what it meant and choose the next step</span></li>
+      </ol>
+    </div>
+
+    <h3>Continue, simplify, stop, start</h3>
+    <div class="filter">
+      <div class="fcol f-continue">
+        <div class="fhead"><span class="fico" aria-hidden="true">✓</span>Continue</div>
+        <ul>
+          <li>One-to-one help: preparing a family name, printing cards, using Ordinances Ready</li>
+          <li>Ordinances Ready, Family Name Assist and the ward FamilySearch group</li>
+          <li>Sharing local spiritual stories; youth involved in existing temple visits</li>
+        </ul>
+      </div>
+      <div class="fcol f-simplify">
+        <div class="fhead"><span class="fico" aria-hidden="true">−</span>Simplify</div>
+        <ul>
+          <li>One short monthly message instead of a full newsletter</li>
+          <li>One ward-supported temple opportunity per quarter</li>
+          <li>Brief coordination conversations and one annual emphasis</li>
+        </ul>
+      </div>
+      <div class="fcol f-stop">
+        <div class="fhead"><span class="fico" aria-hidden="true">✕</span>Stop</div>
+        <ul>
+          <li>Numeric participation targets and quota-like goals</li>
+          <li>"All members" language that sounds compulsory</li>
+          <li>Repeating every event each year regardless of impact</li>
+        </ul>
+      </div>
+      <div class="fcol f-start">
+        <div class="fhead"><span class="fico" aria-hidden="true">+</span>Start</div>
+        <ul>
+          <li>A small confidential list of individuals being helped</li>
+          <li>One owner and one clear next step per person</li>
+          <li>Personal follow-up after temple visits and a quarterly review of what helps</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span>General Handbook references</span>
+    <ul>
+      <li><a href="https://www.churchofjesuschrist.org/study/manual/general-handbook/25-temple-and-family-history-work?lang=eng" target="_blank" rel="noopener">Chapter 25: Temple and Family History Work</a></li>
+      <li><a href="https://www.churchofjesuschrist.org/study/manual/general-handbook/25-temple-and-family-history-work?lang=eng#title_number12" target="_blank" rel="noopener">25.2.6 Ward Temple and Family History Plan</a></li>
+      <li id="ref-1">[1] <a href="https://www.churchofjesuschrist.org/study/manual/general-handbook/25-temple-and-family-history-work?lang=eng#title_number13" target="_blank" rel="noopener">25.2.7 Ward Temple and Family History Coordination Meetings</a></li>
+      <li><a href="https://www.churchofjesuschrist.org/study/manual/general-handbook/25-temple-and-family-history-work?lang=eng#title_number22" target="_blank" rel="noopener">25.4.1 Online Resources (Ordinances Ready, Family Name Assist)</a></li>
+    </ul>
+  </footer>
+</div>
+
+</body></html>
